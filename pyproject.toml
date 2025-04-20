@@ -1,0 +1,30 @@
+[project]
+name = "intelligent-databse-prototype"
+version = "0.1.0"
+description = "This is an intelligent database prototype"
+authors = [
+    {name = "anish"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click (>=8.1.8,<9.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+intelligent-db = "intelligent_database.cli.main:cli" # <command-name> = "<package>.<module>:<function/group>"
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+sphinx = "^8.2.3"
+sphinx-rtd-theme = "^3.0.2"
+flake8 = "^7.2.0"
+black = "^25.1.0"
+isort = "^6.0.1"
+pre-commit = "^4.2.0"
+

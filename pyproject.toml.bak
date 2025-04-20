@@ -1,0 +1,19 @@
+[tool.poetry]
+packages = [{include = "intelligent_database", from = "src"}]
+name = "intelligent-database-prototype"  # <--- Make sure this line is present and has your project name
+version = "0.1.0"                       # <--- Make sure this line is present and has a version number
+description = "A prototype intelligent database project." # Add a description
+authors = ["Your Name <you@example.com>"] # Add your name and email
+readme = "README.md"
+
+[tool.poetry.dependencies]
+
+[tool.poetry.group.dev.dependencies]
+
+
+[tool.poetry.scripts]
+intelligent-db = "intelligent_database.cli.main:cli" # <command-name> = "<package>.<module>:<function/group>"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

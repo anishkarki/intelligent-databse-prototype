@@ -1,0 +1,29 @@
+# .pre-commit-config.yaml
+repos:
+-   repo: https://github.com/psf/black # Black's repository
+    rev: 24.3.0 # Use a specific version (check https://github.com/psf/black/releases)
+    hooks:
+    -   id: black
+        language_version: python3 # Specify Python version for black
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit # Ruff's repository
+    rev: v0.3.0 # Use a specific version (check https://github.com/astral-sh/ruff-pre-commit/releases)
+    hooks:
+    -   id: ruff
+        # You can add args here to pass specific options to ruff,
+        # e.g., args: [--fix, --exit-non-zero-on-fix]
+        # You'll typically configure ruff in pyproject.toml or ruff.toml
+
+# Your local hooks repository (for pytest etc.)
+-   repo: local
+    rev: v1.0
+    hooks:
+    -   id: run-pytest
+        name: Run Pytest Tests
+        description: Runs pytest using poetry run
+        language: system
+        entry: poetry run pytest
+        always_run: true
+        pass_filenames: false
+        stages: [commit]
+        files: \.py$|^pyproject\.toml$|^tests/
