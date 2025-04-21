@@ -26,3 +26,20 @@ jobs:
 
     - name: Install Poetry
       run: pip install poetry
+
+    - name: Install dependencies
+      run: poetry install
+
+    - name: Run tests
+      run: |
+        # Run tests with pytest
+        poetry run pytest --maxfail=1 --disable-warnings -q
+
+    - name: Lint code
+      run: |
+        # Run flake8 for linting
+        poetry run flake8 .
+        # Run black for formatting
+        poetry run black --check .
+        # Run isort for import sorting
+        poetry run ruff check .
